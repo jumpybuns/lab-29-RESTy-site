@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import SearchCmp from '../../components/search/SearchCmp';
 import { getSearch } from '../../services/getSearch';
+import JSONResults from '../../components/results/JSONResults';
 
 export default class Search extends Component {
   state = {
     search: 'penny',
-    httpResults: [],
+    results: [],
     loading: false,
   };
 
@@ -15,8 +16,8 @@ export default class Search extends Component {
 
   fetchJSON = () => {
     this.setState({ loading: true });
-    getSearch(this.state.search).then((httpResults) =>
-      this.setState({ httpResults, loading: false })
+    getSearch(this.state.search).then((results) =>
+      this.setState({ results, loading: false })
     );
   };
 
@@ -24,13 +25,13 @@ export default class Search extends Component {
     this.setState({ [target.search]: target.value });
   };
   render() {
-    const { search, httpResults, loading } = this.state;
+    const { search, results, loading } = this.state;
 
     return (
       <div>
         <SearchCmp search={search} onChange={this.handleSearch} />
         {loading && <h1>Loading...</h1>}
-        <JSONList httpResults={httpResults} />
+        <JSONResults results={results} />
       </div>
     );
   }
