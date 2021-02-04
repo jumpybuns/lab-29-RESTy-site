@@ -1,3 +1,5 @@
-export const getSearch = (httpSearch) => {
-  return fetch(`${httpSearch}`).then((res) => res.websites);
+export const getSearch = (search) => {
+  return fetch(`${search}`)
+    .then((res) => res.json())
+    .then((json) => json.results());
 };
