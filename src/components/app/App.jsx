@@ -1,5 +1,11 @@
-import React from 'react';
-
-export default function App() {
-  return <h1>Hello World</h1>;
+import React, { Component } from 'react';
+import Home from '../../containers/home/Home';
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Home />
+      </div>
+    );
+  }
 }
