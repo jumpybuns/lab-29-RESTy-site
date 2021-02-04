@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import SearchCmp from '../../components/search/SearchCmp';
+import { getSearch } from '../../services/getSearch';
 
 export default class Search extends Component {
   state = {
-    httpSearch: [],
+    search: 'penny',
+    httpResults: [],
     loading: false,
   };
 
-  handleChange = ({ target }) => {
+  componentDidMount() {
+    this.fetchJSON();
+  }
+
+  fetchJSON = () => {
+    this.setState({ loading: true });
+    getSearch(this.state.search).then((httpResults) =>
+      this.setState({ httpResults, loading: false })
+    );
+  };
+
+  handleSearch = ({ target }) => {
     this.setState({ [target.search]: target.value });
   };
   render() {
-    const { httpSearch } = this.state;
+    const { search, httpResults, loading } = this.state;
 
     return (
       <div>
-        <SearchCmp httpSearch={httpSearch} onChange={this.handleChange} />
+        <SearchCmp search={search} onChange={this.handleSearch} />
+        {loading && <h1>Loading...</h1>}
+        <JSONList httpResults={httpResults} />
       </div>
     );
   }

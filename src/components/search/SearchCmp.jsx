@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 const SearchCmp = ({ httpSearch, onChange }) => (
   <div>
-    <input type="text" value={httpSearch} onChange={onChange} />
+    <input
+      type="text"
+      placeholder="http://..."
+      value={httpSearch}
+      onChange={onChange}
+    />
   </div>
 );
 
