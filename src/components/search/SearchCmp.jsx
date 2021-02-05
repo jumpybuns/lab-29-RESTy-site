@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchCmp = ({ requestURL, requestBody, onChange }) => (
+const SearchCmp = ({
+  requestURL,
+  requestBody,
+  onChange,
+  onSubmit,
+  results,
+}) => (
   <div>
-    <form>
+    <form onSubmit={onSubmit}>
       <label htmlFor="GET">
         <input
           id="GET"
@@ -54,7 +60,7 @@ const SearchCmp = ({ requestURL, requestBody, onChange }) => (
         placeholder="post/put text"
         name="requestBody"
         onChange={onChange}
-        value={requestBody}
+        value={results}
       />
     </form>
   </div>
@@ -64,6 +70,8 @@ SearchCmp.propTypes = {
   requestBody: PropTypes.string.isRequired,
   requestURL: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  results: PropTypes.object.isRequired,
 };
 
 export default SearchCmp;

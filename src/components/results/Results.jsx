@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const Results = ({ results }) => (
   <figure>
-    <figcaption>{results}</figcaption>
+    <h1>{results}</h1>
   </figure>
 );
 
 Results.propTypes = {
-  results: PropTypes.string.isRequired,
+  results: PropTypes.object.isRequired,
 };
 
 export default Results;

@@ -6,10 +6,10 @@ import Results from '../../components/Results/Results';
 export default class Search extends Component {
   state = {
     search: '',
-    results: '',
+    results: [],
     requestBody: '',
     requestURL: '',
-    method: '',
+    method: 'GET',
     loading: false,
   };
 
@@ -17,9 +17,10 @@ export default class Search extends Component {
   //   this.fetchJSON();
   // }
 
-  fetchJSON = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { requestBody, requestURL, method } = this.state;
-    this.setState({ loading: true });
+    this.setState({ requestBody, requestURL, method, loading: true });
     getSearch(requestURL, requestBody, method).then((results) =>
       this.setState({ results, loading: false })
     );
@@ -35,17 +36,19 @@ export default class Search extends Component {
   // };
   render() {
     const { method, requestURL, requestBody, results, loading } = this.state;
-    console.log(method, requestURL, requestBody);
+    console.log(method, results);
     return (
       <div>
         <SearchCmp
           requestURL={requestURL}
           requestBody={requestBody}
           onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+          results={requestBody}
         />
 
         {loading && <h1>Loading...</h1>}
-        <Results results={results} />
+        <Results requestBody={requestBody} />
       </div>
     );
   }
