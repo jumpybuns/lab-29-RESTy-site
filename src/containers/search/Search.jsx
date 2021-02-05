@@ -7,12 +7,15 @@ export default class Search extends Component {
   state = {
     search: '',
     results: '',
+    requestBody: '',
+    requestURL: '',
+    method: '',
     loading: false,
   };
 
-  componentDidMount() {
-    this.fetchJSON();
-  }
+  // componentDidMount() {
+  //   this.fetchJSON();
+  // }
 
   fetchJSON = () => {
     this.setState({ loading: true });
@@ -21,18 +24,27 @@ export default class Search extends Component {
     );
   };
 
-  handleSearch = ({ target }) => {
-    this.setState({ [target.search]: target.value });
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
   };
+  // handleSearch = ({ target }) => {
+  //   this.setState({ search: target.value }, () => {
+  //     this.fetchJSON();
+  //   });
+  // };
   render() {
-    const { search, results, loading } = this.state;
-
+    const { method, requestURL, requestBody, results, loading } = this.state;
+    console.log(method, requestURL, requestBody);
     return (
       <div>
-        <SearchCmp search={search} onChange={this.handleSearch} />
-        <button>Go</button>
+        <SearchCmp
+          requestURL={requestURL}
+          requestBody={requestBody}
+          onChange={this.handleChange}
+        />
+
         {loading && <h1>Loading...</h1>}
-        <Results result={results} />
+        <Results results={results} />
       </div>
     );
   }

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Result = ({ results }) => (
+const Results = ({ results }) => (
   <figure>
     <figcaption>{results}</figcaption>
   </figure>
 );
 
-Result.propTypes = {
+Results.propTypes = {
   results: PropTypes.string.isRequired,
 };
 
-export default Result;
+export default Results;
