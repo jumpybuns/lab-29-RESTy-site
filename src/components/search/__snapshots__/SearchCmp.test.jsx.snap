@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchCmp component renders SearchCmp 1`] = `
+<DocumentFragment>
+  <div>
+    <form>
+      <label
+        for="GET"
+      >
+        <input
+          id="GET"
+          name="method"
+          type="radio"
+          value="GET"
+        />
+      </label>
+      <label
+        for="POST"
+      >
+        <input
+          id="POST"
+          name="method"
+          type="radio"
+          value="POST"
+        />
+      </label>
+      <label
+        for="PUT"
+      >
+        <input
+          id="PUT"
+          name="method"
+          type="radio"
+          value="PUT"
+        />
+      </label>
+      <label
+        for="DELETE"
+      >
+        <input
+          id="DELETE"
+          name="method"
+          type="radio"
+          value="DELETE"
+        />
+      </label>
+      <input
+        name="requestURL"
+        placeholder="http://..."
+        type="text"
+        value="reqeustURL"
+      />
+      <button>
+        GO
+      </button>
+      <textarea
+        name="requestBody"
+        placeholder="post/put text"
+      >
+        requestBody
+      </textarea>
+    </form>
+  </div>
+</DocumentFragment>
+`;

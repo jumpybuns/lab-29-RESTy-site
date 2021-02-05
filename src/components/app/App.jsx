@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from '../../containers/home/Home';
+import Search from '../../containers/search/Search';
 import Header from '../../containers/header/Header';
 
 export default class App extends Component {
@@ -7,7 +7,7 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Home />
+        <Search />
       </div>
     );
   }

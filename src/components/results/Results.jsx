@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Results = ({ results }) => <pre>{JSON.stringify(results, null, 8)}</pre>;
 
 Results.propTypes = {
-  results: PropTypes.string.isRequired,
+  results: PropTypes.array,
 };
 
 export default Results;

@@ -36,11 +36,10 @@ export default class Search extends Component {
           requestBody={requestBody}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
-          results={results}
         />
 
         {loading && <h1>Loading...</h1>}
-        <Results results={results} onSubmit={this.handleSubmit} />
+        <Results results={results} />
       </div>
     );
   }
