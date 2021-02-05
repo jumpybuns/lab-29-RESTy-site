@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import SearchCmp from '../../components/search/SearchCmp';
 import { getSearch } from '../../services/getSearch';
-import JSONResults from '../../components/results/JSONResults';
+import Results from '../../components/Results/Results';
 
 export default class Search extends Component {
   state = {
-    search: 'penny',
-    results: [],
+    search: '',
+    results: '',
     loading: false,
   };
 
@@ -30,8 +30,9 @@ export default class Search extends Component {
     return (
       <div>
         <SearchCmp search={search} onChange={this.handleSearch} />
+        <button>Go</button>
         {loading && <h1>Loading...</h1>}
-        <JSONResults results={results} />
+        <Results result={results} />
       </div>
     );
   }

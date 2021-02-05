@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Result = ({ root }) => (
+const Result = ({ results }) => (
   <figure>
-    <figcaption>{root}</figcaption>
+    <figcaption>{results}</figcaption>
   </figure>
 );
 
 Result.propTypes = {
-  root: PropTypes.array.isRequired,
+  results: PropTypes.string.isRequired,
 };
 
 export default Result;

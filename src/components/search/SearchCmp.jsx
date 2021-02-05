@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SearchCmp = ({ results, onChange }) => (
+const SearchCmp = ({ search, onChange }) => (
   <div>
     <input
       type="text"
       placeholder="http://..."
-      value={results}
+      value={search}
       onChange={onChange}
     />
   </div>
 );
 
 SearchCmp.propTypes = {
-  results: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
