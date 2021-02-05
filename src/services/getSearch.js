@@ -1,5 +1,11 @@
-export const getSearch = (search) => {
-  return fetch(`${search}`)
-    .then((res) => res.json())
-    .then((json) => json.results());
+export const getSearch = (requestURL, requestBody, method) => {
+  if (method === 'GET') {
+    return fetch(requestURL).then((res) => res.json());
+  } else if (method === 'POST') {
+    return fetch(requestURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: requestBody,
+    }).then((res) => res.json());
+  }
 };

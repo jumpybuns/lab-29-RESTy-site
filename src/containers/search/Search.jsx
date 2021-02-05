@@ -18,8 +18,9 @@ export default class Search extends Component {
   // }
 
   fetchJSON = () => {
+    const { requestBody, requestURL, method } = this.state;
     this.setState({ loading: true });
-    getSearch(this.state.search).then((results) =>
+    getSearch(requestURL, requestBody, method).then((results) =>
       this.setState({ results, loading: false })
     );
   };
