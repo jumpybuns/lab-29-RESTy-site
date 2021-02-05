@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Results = ({ results }) => (
-  <figure>
-    <h1>{results}</h1>
-  </figure>
-);
+const Results = ({ results }) => <pre>{JSON.stringify(results, null, 8)}</pre>;
 
 Results.propTypes = {
-  results: PropTypes.object.isRequired,
+  results: PropTypes.string.isRequired,
 };
 
 export default Results;

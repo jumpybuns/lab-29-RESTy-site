@@ -13,10 +13,6 @@ export default class Search extends Component {
     loading: false,
   };
 
-  // componentDidMount() {
-  //   this.fetchJSON();
-  // }
-
   handleSubmit = (e) => {
     e.preventDefault();
     const { requestBody, requestURL, method } = this.state;
@@ -29,11 +25,7 @@ export default class Search extends Component {
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
-  // handleSearch = ({ target }) => {
-  //   this.setState({ search: target.value }, () => {
-  //     this.fetchJSON();
-  //   });
-  // };
+
   render() {
     const { method, requestURL, requestBody, results, loading } = this.state;
     console.log(method, results);
@@ -44,11 +36,11 @@ export default class Search extends Component {
           requestBody={requestBody}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
-          results={requestBody}
+          results={results}
         />
 
         {loading && <h1>Loading...</h1>}
-        <Results requestBody={requestBody} />
+        <Results results={results} onSubmit={this.handleSubmit} />
       </div>
     );
   }
