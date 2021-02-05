@@ -1,5 +1,5 @@
 import React from 'react';
-import Result from '../result/Results';
+import Result from '../result/Result';
 import PropTypes from 'prop-types';
 
 const JSONResults = ({ results }) => {
