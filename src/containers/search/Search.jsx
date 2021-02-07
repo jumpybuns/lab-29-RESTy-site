@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchCmp from '../../components/search/SearchCmp';
 import { getSearch } from '../../services/getSearch';
-import Results from '../../components/Results/Results';
+import Results from '../../components/results/Results';
 
 export default class Search extends Component {
   state = {
@@ -27,8 +27,8 @@ export default class Search extends Component {
   };
 
   render() {
-    const { method, requestURL, requestBody, results, loading } = this.state;
-    console.log(method, results);
+    const { requestURL, requestBody, results, loading } = this.state;
+
     return (
       <div>
         <SearchCmp
