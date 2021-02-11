@@ -1,18 +1,20 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import Search from './Search';
+import Results from './Results';
 
-describe('Search component', () => {
+describe('Results component', () => {
   afterEach(() => cleanup());
-  it('renders Search', () => {
+  it('renders Results', () => {
     const { asFragment } = render(
-      <Search
-        requestURL="reqeustURL"
-        requestBody="requestBody"
+      <Results
         onChange={jest.fn()}
         onSubmit={jest.fn()}
+        url="www.google.com"
+        method="get"
+        body="{}"
       />
     );
+
     expect(asFragment()).toMatchSnapshot();
   });
 });
